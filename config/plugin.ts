@@ -17,6 +17,10 @@ const plugin: EggPlugin = {
   cors: {
     enable: true,
     package: 'egg-cors'
+  },
+  cluster: {
+    enable: true,
+    package: 'egg-cluster'
   }
 };
 

@@ -57,6 +57,14 @@ export default (appInfo: EggAppInfo) => {
     origin: '*',
     credentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  };
+
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 7002,
+      hostname: '0.0.0.0'
+    }
   }
 
 
