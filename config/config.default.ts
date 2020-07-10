@@ -62,7 +62,7 @@ export default (appInfo: EggAppInfo) => {
   config.cluster = {
     listen: {
       path: '',
-      port: 7002,
+      port: 4000,
       hostname: '127.0.0.1'
     }
   }
