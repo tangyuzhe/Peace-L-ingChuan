@@ -6,32 +6,32 @@ export default (app: Application) => {
       type: INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     name: {
       type: STRING(10),
-      allowNull: true
+      allowNull: true,
     },
     address: {
       type: STRING(50),
-      allowNull: true
+      allowNull: true,
     },
     score: {
       type: INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     time: {
       type: DATE,
-      allowNull: true
+      allowNull: true,
     },
     openid: {
       type: STRING(100),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     tableName: 'score',
-    freezeTableName: true,  //取消在表后面添加s复数
-    timestamps: false  //取消create_time和update_time
+    freezeTableName: true,
+    timestamps: false,
   });
   return class extends Score { };
 };

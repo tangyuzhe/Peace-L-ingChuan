@@ -6,44 +6,44 @@ export default (app: Application) => {
       type: INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     topic: {
       type: INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     question_type: {
       type: INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     question: {
       type: STRING(200),
-      allowNull: true
+      allowNull: true,
     },
     optionA: {
       type: STRING(200),
-      allowNull: true
+      allowNull: true,
     },
     optionB: {
       type: STRING(200),
-      allowNull: true
+      allowNull: true,
     },
     optionC: {
       type: STRING(200),
-      allowNull: true
+      allowNull: true,
     },
     optionD: {
       type: STRING(200),
-      allowNull: true
+      allowNull: true,
     },
     answer: {
       type: STRING(10),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
     tableName: 'questionbank',
-    freezeTableName: true,  //取消在表后面添加s复数
-    timestamps: false  //取消create_time和update_time
+    freezeTableName: true,
+    timestamps: false,
   });
   return class extends QuestionBank { };
 };

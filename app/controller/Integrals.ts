@@ -1,7 +1,7 @@
 import { Controller } from 'egg';
 
 /**
- * @controller Integral 
+ * @controller Integral
  */
 export default class IntegralsController extends Controller {
 
@@ -11,14 +11,14 @@ export default class IntegralsController extends Controller {
    * @router put /api/integrals
    * @request query string name
    * @request query string openid
-   * @request query double integrals 
+   * @request query double integrals
    * @response 200 Integrals 查询成功
    */
   public async create() {
     const { ctx, service } = this;
     const name: string = ctx.query.name;
     const openid: string = ctx.query.openid;
-    const integrals: number = ctx.query.integrals
+    const integrals: number = ctx.query.integrals;
     ctx.body = await service.integrals.update(name, openid, integrals);
   }
 
@@ -31,7 +31,7 @@ export default class IntegralsController extends Controller {
    */
   public async queryIntegral() {
     const { ctx, service } = this;
-    ctx.body = await service.integrals.queryIntegral(ctx.params.name)
+    ctx.body = await service.integrals.queryIntegral(ctx.params.name);
   }
 
 }

@@ -7,38 +7,40 @@ export default class IntegralsService extends Service {
 
   /**
    * 修改个人积分
-   * @param name 
-   * @param openid 
-   * @param integrals 
+   * @param Name
+   * @param Openid
+   * @param Integrals
    */
-  public async update(name: string, openid: string, integrals: number) {
+  public async update(Name: string, Openid: string, Integrals: number) {
     const { ctx } = this;
     const data: any = await ctx.model.Integrals.findOne({
       where: {
-        name: name
-      }
+        name: Name,
+      },
     });
     const query: any = {};
-    if (openid) {
-      query.openid = openid;
+    if (Openid) {
+      query.openid = Openid;
     }
-    if (integrals) {
-      query.integrals = integrals;
+    if (Integrals) {
+      query.integrals = Integrals;
     }
     if (!data) {
       return Object.assign({}, Code.Find.ERROE);
-    } else {
+    }
+    if (data) {
       const res: any = await ctx.model.Integrals.update(query, {
         where: {
-          name: name
-        }
+          name: Name,
+        },
       });
       if (!res) {
-        return Object.assign({}, Code.Update.ERROE)
-      } else {
+        return Object.assign({}, Code.Update.ERROE);
+      }
+      if (res) {
         return Object.assign({}, Code.Update.SUCCESS, {
-          data: res
-        })
+          data: res,
+        });
       }
     }
   }
@@ -46,22 +48,23 @@ export default class IntegralsService extends Service {
 
   /**
    * 查询个人积分
-   * @param name 
+   * @param Name
    */
-  public async queryIntegral(name: string) {
+  public async queryIntegral(Name: string) {
     const { ctx } = this;
     const res: any = await ctx.model.Integrals.findOne({
       attributes: ['integrals'],
       where: {
-        name: name
-      }
+        name: Name,
+      },
     });
     if (!res) {
       return Object.assign({}, Code.Find.ERROE);
-    } else {
+    }
+    if (res) {
       return Object.assign({}, Code.Find.SUCCESS, {
-        data: res
-      })
+        data: res,
+      });
     }
   }
 }

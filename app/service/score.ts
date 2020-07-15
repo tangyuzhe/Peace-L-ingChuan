@@ -7,39 +7,40 @@ export default class ScoreService extends Service {
 
   /**
    * 创建成绩单
-   * @param score 
+   * @param score
    */
   public async create(score: any) {
     const { ctx } = this;
     try {
       const res: any = await ctx.model.Score.create(score);
       return Object.assign({}, Code.Add.SUCCESS, {
-        data: res
+        data: res,
       });
     } catch (error) {
       ctx.status = 500;
-      throw (error)
+      throw (error);
     }
   }
 
   /**
  * 查询分数
- * @param name 
+ * @param name
  */
-  public async queryScore(name: string) {
+  public async queryScore(Name: string) {
     const { ctx } = this;
     const res: any = await ctx.model.Score.findOne({
       attributes: ['score'],
       where: {
-        name: name
-      }
+        name: Name,
+      },
     });
     if (!res) {
       return Object.assign({}, Code.Find.ERROE);
-    } else {
+    }
+    if (res) {
       return Object.assign({}, Code.Find.SUCCESS, {
-        data: res
-      })
+        data: res,
+      });
     }
   }
 }

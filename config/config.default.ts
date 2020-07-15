@@ -24,7 +24,7 @@ export default (appInfo: EggAppInfo) => {
     password: 'Fznfzn509',
     timezone: '+08:00',
     define: {
-      timestamps: false
+      timestamps: false,
     },
   };
 
@@ -38,9 +38,6 @@ export default (appInfo: EggAppInfo) => {
     schemes: ['http', 'https'],
     consumes: ['application/json'],
     produces: ['application/json'],
-    securityDefinitions: {
-
-    },
     enableSecurity: false,
     routerMap: true,
     enable: true,
@@ -49,25 +46,23 @@ export default (appInfo: EggAppInfo) => {
   // 添加白名单访问列表
   config.security = {
     csrf: {
-      enable: false
-    }
+      enable: false,
+    },
   };
 
   config.cors = {
     origin: '*',
     credentials: true,
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
 
   config.cluster = {
     listen: {
       path: '',
       port: 4000,
-      hostname: '127.0.0.1'
-    }
-  }
-
-
+      hostname: '127.0.0.1',
+    },
+  };
 
   // the return config will combines to EggAppConfig
   return {

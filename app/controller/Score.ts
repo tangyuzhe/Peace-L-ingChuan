@@ -1,7 +1,7 @@
 import { Controller } from 'egg';
 
 /**
- * @controller Score 
+ * @controller Score
  */
 export default class ScoreController extends Controller {
 

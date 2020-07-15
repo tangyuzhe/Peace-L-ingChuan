@@ -1,7 +1,7 @@
 import { Controller } from 'egg';
 
 /**
- * @controller QuestionBank 
+ * @controller QuestionBank
  */
 export default class QuestionBankController extends Controller {
 
