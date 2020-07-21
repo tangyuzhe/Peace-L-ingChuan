@@ -28,7 +28,7 @@ export default class ScoreService extends Service {
  */
   public async queryScore(Name: string) {
     const { ctx } = this;
-    const res: any = await ctx.model.Score.findOne({
+    const res: any = await ctx.model.Score.findAll({
       attributes: ['score'],
       where: {
         name: Name,
