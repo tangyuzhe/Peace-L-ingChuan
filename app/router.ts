@@ -13,5 +13,5 @@ export default (app: Application) => {
   router.get('/api/question/:id', controller.questionBank.findAnswer);
 
   router.post('/api/score', controller.score.create);
-  router.get('/api/score/:name', controller.score.QueryScore);
+  // router.get('/api/score/:name', controller.score.QueryScore);
 };

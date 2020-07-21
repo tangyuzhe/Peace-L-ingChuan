@@ -23,15 +23,20 @@ export default class ScoreService extends Service {
   }
 
   /**
- * 查询分数
- * @param name
- */
-  public async queryScore(Name: string) {
+   * 查询指定日期的分数
+   * @param Name 
+   * @param startTime 
+   * @param endTime 
+   */
+  public async queryScore(Name: string, startTime: string, endTime: string) {
     const { ctx } = this;
     const res: any = await ctx.model.Score.findAll({
       attributes: ['score'],
       where: {
         name: Name,
+        time: {
+          $between: [startTime, endTime],
+        },
       },
     });
     if (!res) {

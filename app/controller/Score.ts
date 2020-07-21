@@ -21,13 +21,15 @@ export default class ScoreController extends Controller {
   /**
    * @summary 查询
    * @description 查询测试成绩
-   * @router get /api/score/{name}
-   * @request path string name
+   * @router get /api/score
+   * @request query string name
+   * @request query string starttime
+   * @request query string endtime
    * @response 200 Score 查询成功
    */
   public async QueryScore() {
     const { ctx, service } = this;
-    ctx.body = await service.score.queryScore(ctx.params.name);
+    ctx.body = await service.score.queryScore(ctx.query.name, ctx.query.starttime, ctx.query.endtime);
   }
 
 }
