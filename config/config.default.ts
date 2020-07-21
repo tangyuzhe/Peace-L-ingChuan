@@ -1,5 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
-
+const Op = require('sequelize').Op;
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
 
@@ -26,6 +26,9 @@ export default (appInfo: EggAppInfo) => {
     define: {
       timestamps: false,
     },
+    operatorsAliases: {
+      $between: Op.between
+    }
   };
 
   config.swaggerdoc = {
