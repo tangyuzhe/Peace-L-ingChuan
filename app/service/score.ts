@@ -1,5 +1,6 @@
 import { Service } from 'egg';
 import { Code } from '../middleware/code';
+const Op = require('sequelize').Op;
 /**
  * Score成绩
  */
@@ -35,7 +36,7 @@ export default class ScoreService extends Service {
       where: {
         name: Name,
         time: {
-          $between: [startTime, endTime],
+          [Op.between]: [startTime, endTime],
         },
       },
     });
