@@ -17,18 +17,18 @@ export default (appInfo: EggAppInfo) => {
 
   config.sequelize = {
     dialect: 'mysql',
-    host: '121.37.180.33',
+    host: '124.70.188.227',
     port: 3306,
     database: 'peacelc',
     username: 'root',
-    password: 'Fznfzn509',
+    password: 'Fznfzn509.',
     timezone: '+08:00',
     define: {
       timestamps: false,
     },
     operatorsAliases: {
-      $between: Op.between
-    }
+      $between: Op.between,
+    },
   };
 
   config.swaggerdoc = {
